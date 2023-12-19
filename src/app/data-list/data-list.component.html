@@ -1,0 +1,38 @@
+<!-- data-list.component.html -->
+
+<div class="container mx-auto">
+    <!-- Using utilities: -->
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded absolute top-5 right-20 h-16" (click)="openModal()">
+        Add +
+    </button>
+    <h1 class="text-2xl font-bold my-4">Data List</h1>
+    <table class="min-w-full bg-white border border-gray-300">
+      <thead>
+        <tr>
+          <th class="py-2 px-4 border-b">Avatar</th>
+          <th class="py-2 px-4 border-b">Name</th>
+          <th class="py-2 px-4 border-b">Country</th>
+          <th class="py-2 px-4 border-b">City</th>
+          <th class="py-2 px-4 border-b">Balance</th>
+          <!-- Tambahkan kolom lain sesuai kebutuhan -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data">
+          <td class="py-2 px-4 border-b object-none object-center"><img src="{{ item.avatar }}" alt=""></td>
+          <td class="py-2 px-4 border-b text-center">{{ item.name }}</td>
+          <td class="py-2 px-4 border-b text-center ">{{ item.country }}</td>
+          <td class="py-2 px-4 border-b text-center">{{ item.city }}</td>
+          <td class="py-2 px-4 border-b text-center">{{ item.currency }} {{ item.balance}}</td>
+          <!-- Tambahkan kolom lain sesuai kebutuhan -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  
+
+<div *ngIf="isModalOpen" class="modal">
+    <!-- Konten modal di sini -->
+    <button (click)="closeModal()">Close</button>
+</div>
